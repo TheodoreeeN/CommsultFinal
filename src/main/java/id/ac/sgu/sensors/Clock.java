@@ -1,17 +1,9 @@
 package id.ac.sgu.sensors;
 
-public class Clock {
-	private int time;
+public class Clock extends Sensor {
 	
-	public Clock(int time) {
-		this.time = time;
+	public Clock(int state) {
+		super(state);
 	}
-	
-	public int getTime() {
-		return time;
-	}
-	
-	public void setTime(int time) {
-		this.time = time;
-	}
+
 }

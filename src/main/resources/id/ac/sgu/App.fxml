@@ -6,7 +6,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.sgu.fx.MainController">
    <children>
       <Pane layoutX="60.0" layoutY="25.0" prefHeight="200.0" prefWidth="881.0">
@@ -21,7 +20,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="642.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" textAlignment="CENTER" wrappingWidth="200.0">
+            <Text layoutX="642.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hour" textAlignment="CENTER" wrappingWidth="200.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -60,12 +59,13 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fx:id="aircon" layoutX="341.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="On" textAlignment="CENTER" wrappingWidth="200.0">
+            <Text fx:id="airCon" layoutX="341.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="On" textAlignment="CENTER" wrappingWidth="200.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Button fx:id="runBtn" layoutX="697.0" layoutY="56.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" onMouseClicked="#onOkButtonMouseClick" text="Run" />
+            <Button fx:id="runBtn" layoutX="696.0" layoutY="3.0" mnemonicParsing="false" onMouseClicked="#onStartButtonMouseClick" prefHeight="50.0" prefWidth="100.0" text="Run" />
+            <Button fx:id="stopBtn" layoutX="696.0" layoutY="89.0" mnemonicParsing="false" onMouseClicked="#onStopButtonMouseClick" prefHeight="50.0" prefWidth="100.0" text="Stop" />
          </children>
       </Pane>
    </children>
