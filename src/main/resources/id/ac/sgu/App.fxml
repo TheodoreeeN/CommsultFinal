@@ -7,11 +7,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.sgu.fx.AppController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.sgu.fx.MainController">
    <children>
-      <HBox layoutX="15.0" layoutY="49.0" prefHeight="100.0" prefWidth="565.0">
+      <HBox layoutX="15.0" layoutY="49.0" prefHeight="100.0" prefWidth="900.0">
          <children>
-            <Text fx:id="demoText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="254.7294921875">
+            <Text fx:id="demoText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="250">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text fx:id="demoText2" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="250">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text fx:id="demoText3" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="250">
                <HBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </HBox.margin>
