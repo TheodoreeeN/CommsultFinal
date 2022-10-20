@@ -117,6 +117,10 @@ public class MainController implements Initializable {
 			int speed = anemo.getState();
 			int time = clock.getState();
 			
+			if (time == 24) {
+				time = 0;
+			}
+			
 			tempVal = Integer.toString(temp);
 			windVal = Integer.toString(speed);
 			timeVal = Integer.toString(time);
@@ -140,7 +144,6 @@ public class MainController implements Initializable {
 				timeVal = "0" + timeVal + ":00";
 			}else { timeVal = timeVal + ":00";}
 			
-			updateText(tempVal, windVal, timeVal, acVal, blindsVal);
 			
 			int rand = random.nextInt(6) - 2; //Random value to add temperature
 			int rand2 = random.nextInt(6) - 2; //Random value to add wind speed
@@ -163,12 +166,12 @@ public class MainController implements Initializable {
 			
 			thermo.setState(temp + rand);
 			anemo.setState(speed + rand2);
-			if (time == 24) {
-				time = 0;
-			}
+			
 			clock.setState(time + 1);
 			airCon.setState(acVal);
 			blind.setState(blindsVal);
+			
+			updateText(tempVal, windVal, timeVal, acVal, blindsVal);
 			
 			LOG.info("Temperature: {}C, Wind speed: {} km/h, Time: {}, Air Conditioner : {}, Blinds: {}", temp, speed, time, acVal, blindsVal);
 			Thread.sleep(2000);
