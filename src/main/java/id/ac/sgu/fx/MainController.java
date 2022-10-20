@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import id.ac.sgu.sensors.Thermometer;
 import id.ac.sgu.sensors.Anemometer;
 import id.ac.sgu.sensors.Clock;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -24,36 +25,48 @@ public class MainController implements Initializable {
 	private Random random = new Random();
 
 	@FXML
-	private Text demoText;
+	private Text temp;
 	
 	@FXML
-	private Text demoText2;
+	private Text wind;
 	
 	@FXML
-	private Text demoText3;
+	private Text time;
 
 	@FXML
-	private Button demoBtn;
+	private Button runBtn;
 	
 	Thermometer thermometer = new Thermometer(20);
 	Anemometer anemometer = new Anemometer(10);
 	Clock clock = new Clock(0);
+	String text1, text2, text3;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		demoText.setText("Application init");
 
-		demoBtn.setText("Update");
+		runBtn.setText("Run");
 	
 	}
 
 	@FXML
 	void onOkButtonMouseClick(MouseEvent event) throws Exception {
 		
-		
+		new Thread(() -> {
+	        while(true)
+	        {
+	            try
+	            {
+	            	run(thermometer, anemometer, clock);
+	            }
+	            catch(Exception e)
+	            {
+	                Platform.runLater(() -> updateText(text1, text2, text3));
+	            }
+	        }
+	    }).start();
 
-		run(thermometer, anemometer, clock);
+		//run(thermometer, anemometer, clock);
 
 		/*
 		String randomNumber = Integer.toString(random.nextInt(100));
@@ -71,16 +84,16 @@ public class MainController implements Initializable {
 	
 	void run(Thermometer thermo, Anemometer anemo, Clock clock) throws Exception {
 		
-		while(true) {
+		
 			int temp = thermo.getTemp();
 			int speed = anemo.getSpeed();
 			int time = clock.getTime();
 			
 			LOG.info("Temperature: {}C, Wind speed: {} km/h, Time: {}", temp, speed, time);
 			
-			String text1 = Integer.toString(temp);
-			String text2 = Integer.toString(speed);
-			String text3 = Integer.toString(time);
+			text1 = Integer.toString(temp);
+			text2 = Integer.toString(speed);
+			text3 = Integer.toString(time);
 
 			updateText(text1, text2, text3);
 			
@@ -89,14 +102,15 @@ public class MainController implements Initializable {
 			anemo.setSpeed(speed + 1);
 			clock.setTime(time + 1);
 			Thread.sleep(1000);
-		}
+
+		
 		
 	}
 	
 	void updateText(String text1, String text2, String text3) {
-		demoText.setText(text1);
-		demoText2.setText(text2);
-		demoText3.setText(text3);
+		temp.setText(text1);
+		wind.setText(text2);
+		time.setText(text3);
 	}
 
 }

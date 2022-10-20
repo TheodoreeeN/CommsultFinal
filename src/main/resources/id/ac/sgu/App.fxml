@@ -1,49 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.sgu.fx.MainController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.sgu.fx.MainController">
    <children>
-      <HBox layoutX="15.0" layoutY="49.0" prefHeight="100.0" prefWidth="900.0">
+      <Pane layoutX="60.0" layoutY="25.0" prefHeight="200.0" prefWidth="881.0">
          <children>
-            <Text fx:id="demoText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="250">
-               <HBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </HBox.margin>
+            <Text layoutX="39.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temperature" textAlignment="CENTER" wrappingWidth="200.0">
                <font>
-                  <Font size="28.0" />
+                  <Font size="20.0" />
                </font>
             </Text>
-            <Text fx:id="demoText2" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="250">
-               <HBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </HBox.margin>
+            <Text layoutX="341.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wind Speed" textAlignment="CENTER" wrappingWidth="200.0">
                <font>
-                  <Font size="28.0" />
+                  <Font size="20.0" />
                </font>
             </Text>
-            <Text fx:id="demoText3" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="250">
-               <HBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </HBox.margin>
+            <Text layoutX="642.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" textAlignment="CENTER" wrappingWidth="200.0">
                <font>
-                  <Font size="28.0" />
+                  <Font size="20.0" />
                </font>
             </Text>
-            <Button fx:id="demoBtn" mnemonicParsing="false" onMouseClicked="#onOkButtonMouseClick" text="OK">
-               <HBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-               </padding>
-            </Button>
+            <Text fx:id="temp" layoutX="39.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="200.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="wind" layoutX="341.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="200.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="time" layoutX="642.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="200.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
          </children>
-      </HBox>
+      </Pane>
+      <Pane layoutX="60.0" layoutY="250.0" prefHeight="200.0" prefWidth="881.0">
+         <children>
+            <Text layoutX="39.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blinds" textAlignment="CENTER" wrappingWidth="200.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="341.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Air Conditioner" textAlignment="CENTER" wrappingWidth="200.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="blinds" layoutX="39.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Open" textAlignment="CENTER" wrappingWidth="200.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="aircon" layoutX="341.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="On" textAlignment="CENTER" wrappingWidth="200.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Button fx:id="runBtn" layoutX="697.0" layoutY="56.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" onMouseClicked="#onOkButtonMouseClick" text="Run" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
