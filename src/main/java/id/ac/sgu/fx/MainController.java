@@ -61,14 +61,15 @@ public class MainController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
-
 		runBtn.setText("Start");
 		stopBtn.setText("Stop");
+		stopBtn.setDisable(true);
 	}
 
 	@FXML
 	void onStartButtonMouseClick(MouseEvent event) throws Exception {
+		runBtn.setDisable(true);
+		stopBtn.setDisable(false);
 		t1 = new Thread(() -> {
 	        while(true)
 	        {
@@ -104,6 +105,8 @@ public class MainController implements Initializable {
 	void onStopButtonMouseClick(MouseEvent event) throws Exception {
 		
 		t1.stop();
+		runBtn.setDisable(false);
+		stopBtn.setDisable(true);
 
 	}
 	
@@ -112,7 +115,7 @@ public class MainController implements Initializable {
 		
 			int temp = thermo.getState();
 			int speed = anemo.getState();
-			int time = clock.getState();	
+			int time = clock.getState();
 			
 			tempVal = Integer.toString(temp);
 			windVal = Integer.toString(speed);
@@ -121,7 +124,7 @@ public class MainController implements Initializable {
 			blindsVal = blind.getState();
 			
 			
-			if (temp >= 30 || time >= 21 || time < 5) {
+			if (temp >= 30 || time >= 21 || time < 3) {
 				acVal = "ON";
 			} else {
 				acVal = "OFF";
@@ -133,11 +136,14 @@ public class MainController implements Initializable {
 				blindsVal = "OPENED";
 			}
 			
-
+			if(time<10) {
+				timeVal = "0" + timeVal + ":00";
+			}else { timeVal = timeVal + ":00";}
+			
 			updateText(tempVal, windVal, timeVal, acVal, blindsVal);
 			
-			int rand = random.nextInt(6) - 2;
-			int rand2 = random.nextInt(6) - 2;
+			int rand = random.nextInt(6) - 2; //Random value to add temperature
+			int rand2 = random.nextInt(6) - 2; //Random value to add wind speed
 			
 			if ((temp + rand) < -5) {
 				rand = 0;
@@ -165,10 +171,8 @@ public class MainController implements Initializable {
 			blind.setState(blindsVal);
 			
 			LOG.info("Temperature: {}C, Wind speed: {} km/h, Time: {}, Air Conditioner : {}, Blinds: {}", temp, speed, time, acVal, blindsVal);
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
-		
-		
 	}
 	
 	void updateText(String tempVal, String windVal, String timeVal, String acVal, String blindsVal) {
