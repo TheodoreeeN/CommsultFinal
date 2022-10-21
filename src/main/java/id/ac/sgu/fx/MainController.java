@@ -130,7 +130,8 @@ public class MainController implements Initializable {
 			
 			if (temp >= 30 || time >= 21 || time < 3) {
 				acVal = "ON";
-			} else {
+			}  
+			else {
 				acVal = "OFF";
 			}
 			
@@ -145,8 +146,8 @@ public class MainController implements Initializable {
 			}else { timeVal = timeVal + ":00";}
 			
 			
-			int rand = random.nextInt(6) - 2; //Random value to add temperature
-			int rand2 = random.nextInt(6) - 2; //Random value to add wind speed
+			int rand = random.nextInt(7) - 3; //Random value to add temperature
+			int rand2 = random.nextInt(7) - 3; //Random value to add wind speed
 			
 			if ((temp + rand) < -5) {
 				rand = 0;
